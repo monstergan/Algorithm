@@ -10,6 +10,9 @@ public class PrintBinary {
 
     /**
      * 打印整型二进制
+     * <p>
+     * * << :向左移位 （不带符号）
+     * * >> : 向右移位 （存在带符号）
      *
      * @param: num
      * @return: void
@@ -25,7 +28,17 @@ public class PrintBinary {
     }
 
     public static void main(String[] args) {
-        int num = 3;
-        printBinary(num);
+//        int num = 3;
+//        printBinary(num);
+
+
+        //移位
+        int test = 1;
+        //00000000000000000000000000000001
+        printBinary(test);
+        //左移一位 00000000000000000000000000000010
+        printBinary(test << 1);
+        //左移八位 00000000000000000000000100000000
+        printBinary(test << 8);
     }
 }
