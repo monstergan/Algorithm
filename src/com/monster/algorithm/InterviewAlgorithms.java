@@ -1,6 +1,7 @@
 package com.monster.algorithm;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 public class InterviewAlgorithms {
 
@@ -9,8 +10,12 @@ public class InterviewAlgorithms {
         // for (int i : ints) {
         // System.out.println(i);
         // }
-        int binaried = binarySearch(new int[]{2, 7, 11, 15, 17, 30, 39, 40, 50, 56, 89, 90}, 39);
-        System.out.printf("%d", binaried);
+//        int binaried = binarySearch(new int[]{2, 7, 11, 15, 17, 30, 39, 40, 50, 56, 89, 90}, 39);
+//        System.out.printf("%d", binaried);
+
+        String s = "{}[]()";
+        boolean valid = isValid(s);
+        System.out.printf("%s", valid);
     }
 
     /**
@@ -53,5 +58,36 @@ public class InterviewAlgorithms {
             }
         }
         return -1;
+    }
+
+    /**
+     * 判断括号是否合法
+     *
+     * @param s 字符串
+     * @return 是否合法
+     */
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                // 获取栈内最顶的元素
+                Character top = stack.pop();
+                if (c == ')' && top != '(') {
+                    return false;
+                }
+                if (c == ']' && top != '[') {
+                    return false;
+                }
+                if (c == '}' && top != '{') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
