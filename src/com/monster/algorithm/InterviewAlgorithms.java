@@ -62,6 +62,8 @@ public class InterviewAlgorithms {
 
     /**
      * 判断括号是否合法
+     * <p>
+     * 左括号入栈，右括号出栈匹配。
      *
      * @param s 字符串
      * @return 是否合法
